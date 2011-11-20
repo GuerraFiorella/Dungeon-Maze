@@ -17,14 +17,14 @@ var heroImage = new Image();
 heroImage.onload = function () {
 	heroReady = true;
 };
-heroImage.src = "hero.png";
+heroImage.src = "hero1.jpg";
 
 var monsterReady = false;
 var monsterImage = new Image();
 monsterImage.onload = function () {
 	monsterReady = true;
 };
-monsterImage.src = "monster.png";
+monsterImage.src = "goblin.png";
 
 var oroReady = false;
 var oroImage = new Image();
@@ -86,6 +86,7 @@ var update = function (modifier) {
 		&& monster.y <= (hero.y + 32)
 	) {
 		++NroBatalla;
+		oroImage.src = "oro.png";
 		reset();
 	}
 	
@@ -96,7 +97,17 @@ var update = function (modifier) {
 		&& monster1.y <= (hero.y + 32)
 	) {
 		++NroBatalla;
+		oroImage.src = "oro.png";
 		reset();
+	}
+	
+	if (
+		hero.x <= (oro.x + 32)
+		&& oro.x <= (hero.x + 32)
+		&& hero.y <= (oro.y + 32)
+		&& oro.y <= (hero.y + 32)
+	) {
+		oroImage.src = "";
 	}
 };
 
